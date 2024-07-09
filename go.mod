@@ -1,3 +1,3 @@
-module github.com/Go5303/uuid
+module uuid
 
 go 1.20
