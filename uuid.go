@@ -7,9 +7,8 @@ import (
 
 const StaticStr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
-var str string
-
 func Uuid() string {
+	var str string
 	strLen := len(StaticStr)
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
