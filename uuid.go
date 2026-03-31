@@ -2,19 +2,17 @@ package uuid
 
 import (
 	"math/rand"
-	"time"
+	"strings"
 )
 
 const StaticStr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
-var r = rand.New(rand.NewSource(time.Now().UnixNano()))
-
 func Uuid() string {
-	var str string
+	var b strings.Builder
+	b.Grow(100)
 	strLen := len(StaticStr)
-	for i := 0; i <= 100; i++ {
-		number := r.Intn(strLen)
-		str += StaticStr[number : number+1]
+	for i := 0; i < 100; i++ {
+		b.WriteByte(StaticStr[rand.Intn(strLen)])
 	}
-	return str
+	return b.String()
 }
